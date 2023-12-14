@@ -1,0 +1,18 @@
+<%- include('partials/header.ejs'); -%>
+
+
+<div class="view p-5 mb-4 bg-body-tertiary rounded-3">
+  <img  src="https://covers.openlibrary.org/b/isbn/<%=book.isbn %>-L.jpg" alt="Your Image Description" width="20%" height="20%">
+ 
+    <div class="container-fluid py-5">
+      <h1 ><%= book.name %></h1>
+      <h3 >Author : <%= book.author %></h3>
+      <hr>
+      <p><%= book.summary %></p>
+    </div>
+  </div>
+
+ 
+
+  
+ <%- include('partials/footer.ejs'); -%>

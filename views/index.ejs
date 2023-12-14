@@ -1,0 +1,64 @@
+<%- include('partials/header.ejs'); -%>
+
+
+<section class="searchContainer">
+<!-- search box  -->   
+<div class="container">
+
+    <div class="row height d-flex justify-content-center align-items-center">
+
+      <div class="col-md-8">
+
+        <div class="search">
+          <i class="fa fa-search"></i>
+          <form action="/search" method="post">
+          <input name="searchInput" type="text" class="form-control" placeholder="Search by book name">
+          <button class="btn btn-primary ">Search</button>
+          </form>
+        </div>
+        
+      </div>
+      
+    </div>
+</div>
+</section>
+
+<!-- search box  -->   
+
+ <!-- books container  -->
+  <section>  
+
+    <div class="album py-5 bg-body-tertiary"> 
+        <div class="container">
+          <div class="row">
+            <% if(locals.books){ %>
+              <% for(var i=0 ; i<locals.books.length;i++) { %>
+                <div class="col-6 col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-3">  
+              <div class="card shadow-sm" >
+                <img class="bd-placeholder-img card-img-top" src="https://covers.openlibrary.org/b/isbn/<%=books[i].isbn %>-L.jpg" alt="Your Image Description" height="270px">
+                  <p class="card-text"><h5>Title : <%= books[i].name %></h5></p>
+                  <p class="card-text"> Author : <%= books[i].author %></p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group text-center">
+                      <form action="/view/<%= books[i].id %>" method="post">
+                      <button type="submit" id="viewBtn" class="btn btn-sm btn-outline-secondary">View</button>
+                    </form>
+                      <form action="/delete" method="post">
+                         <!-- Hidden input field to store the book ID -->
+                         <input type="hidden" name="bookId" value="<%= books[i].id %>">
+                      <button type="submit" id="deleteBtn" class="btn btn-sm btn-outline-secondary" >Delete</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+            <% } %>
+            <% } %>
+          </div> 
+        </div>
+      </div>
+    </section>
+ <!-- books container  -->
+
+ <%- include('partials/footer.ejs'); -%>

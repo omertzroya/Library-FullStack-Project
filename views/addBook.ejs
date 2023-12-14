@@ -1,0 +1,31 @@
+<%- include('partials/header.ejs'); -%>
+
+<form action="/addBook" method="post">
+<div class="AddBookContainer">
+<div class="AddBookForm mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Book Name</label>
+    <input name="bookName"  class="form-control"  placeholder="e.g. Harry Potter">
+  </div>
+  <div class="AddBookForm mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Author Name</label>
+  <input name="authorName"  class="form-control" placeholder="Author Name">
+</div>
+<div class="AddBookForm mb-3">
+    <label for="exampleFormControlInput1" class="form-label">ISBN Number</label>
+    <input  name="isbn" class="form-control"  placeholder="ISBN">
+  </div>
+  <div class="AddBookSummary mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Book summary </label>
+    <textarea name ="bookSummary" class="form-control"  rows="15" ></textarea>
+  </div>
+  <button type="submit"  class="btn btn-sm btn-outline-secondary" >Submit</button>
+</div>
+</form>
+ <%- include('partials/footer.ejs'); -%>
+
+
+    <!-- Hidden input field to store the book ID -->
+    
+
+
+ 
